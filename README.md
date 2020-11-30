@@ -46,6 +46,11 @@ There are no known bugs or issues.
 ## Support and Contact Details
 
 * benrmcfarland@gmail.com
+* zahnen@gmail.com
+* grantski@pm.me
+* strattonericj@gmail.com
+* cordenbrock@gmail.com
+* riley.mcadoo@gmail.com
 
 ## Specs
 
