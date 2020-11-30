@@ -15,7 +15,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'tdd-template',
+      title: 'vinyl-suggester',
       template: './src/index.html',
       inject: 'body'
     })
