@@ -3,6 +3,20 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Spotify from './../src/js/spotify.service.js';
+import DiscogsService from './../src/js/discogs-services.js';
+
+
+// Business Logic //
+
+function discogsRequest(artist, album) {
+  DiscogsService.getDiscogs(artist, album)
+    .then(function(response) {
+      console.log(response.results[1].master_id);
+      $("#output").html(`<a href="https://www.discogs.com/master/${response.results[1].master_id}">Click here</a>`)
+    });
+}
+
+// User Interface Logic //
 
 $(document).ready(function() {
 
@@ -20,11 +34,16 @@ $(document).ready(function() {
         albumInfo = response.albums.items[0].name;
         spotifyData = {artist: artistInfo, album: albumInfo};
 
+        discogsRequest(spotifyData.artist, spotifyData.album);
+
         console.log(spotifyData);
-        return spotifyData;
+
       })
       .catch(function(err) {
         console.log(err);
       });
   });
 });
+
+
+
