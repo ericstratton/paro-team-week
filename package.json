@@ -11,7 +11,9 @@
   },
   "jest": {
     "collectCoverage": true,
-    "coverageReporters": ["html"]
+    "coverageReporters": [
+      "html"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -35,6 +37,7 @@
   "dependencies": {
     "bootstrap": "^4.5.0",
     "jquery": "^3.5.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "spotify-web-api-js": "^1.5.1"
   }
 }
