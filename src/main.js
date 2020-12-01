@@ -29,10 +29,12 @@ $(document).ready(function() {
         if (response instanceof Error) {
           throw Error(`Spotify API error -- ${response.message}`);
         }
-        let artistInfo, albumInfo, spotifyData;
+        let artistInfo, albumInfo, albumLink, albumCover, spotifyData;
         artistInfo = response.albums.items[0].artists[0].name;
         albumInfo = response.albums.items[0].name;
-        spotifyData = {artist: artistInfo, album: albumInfo};
+        albumLink = response.albums.items[0].external_urls.spotify;
+        albumCover = response.albums.items[0].images[0].url;
+        spotifyData = {artist: artistInfo, album: albumInfo, link: albumLink, cover: albumCover};
 
         discogsRequest(spotifyData.artist, spotifyData.album);
 
