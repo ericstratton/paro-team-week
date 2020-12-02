@@ -5,6 +5,15 @@ html {
 body {
   background: #fbf6f1;
   color: #000000;
+  font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 25px;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4, .btn, .navbar-nav, .list-group-item {
+  font-family: 'Corben', Georgia, Times, serif;
+  font-weight: bold;
 }
 
 #logoImage {
@@ -26,10 +35,23 @@ body {
   top: 0;
 }
 
-#body, #output, #navbar, #about{
+#body, #output, #navbar, #about, #history{
   display: none;
 }
 
 #navbar {
   background-color: #fbf6f1;
+}
+
+.album-data {
+  max-width:18rem;
+  margin-bottom: 2rem;
+}
+
+iframe {
+  border-radius: 5%;
+}
+
+#heroImage {
+  border-radius: 50%;
 }

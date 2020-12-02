@@ -60,10 +60,20 @@ $('#aboutButton').click (function() {
   $('#body').hide();
   $('#output').hide();
   $('#about').show();
+  $('#history').hide();
+
 });
 $('#homeButton').click (function() {
   $('#output').show();
   $('#body').show();
+  $('#about').hide();
+  $('#history').hide();
+
+});
+$('#historyButton').click (function() {
+  $('#history').show();
+  $('#body').hide();
+  $('#output').hide();
   $('#about').hide();
 });
 
