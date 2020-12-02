@@ -8,6 +8,32 @@ import DiscogsService from './../src/js/discogs-services.js';
 
 // Business Logic //
 
+function buildAlbumObj(obj) {
+  let artistInfo, albumInfo, albumLink, albumCover, albumID, spotifyData;
+  artistInfo = obj.artists[0].name;
+  albumInfo = obj.name;
+  albumLink = obj.external_urls.spotify;
+  albumCover = obj.images[0].url;
+  albumID = obj.id;
+  spotifyData = { artist: artistInfo, album: albumInfo, link: albumLink, cover: albumCover, ID: albumID };
+  return spotifyData;
+}
+
+function formatSearch(keyword, searchOption) {
+  let newKeyword = keyword.replace(/\s\s+/g, "%20");
+  console.log(newKeyword);
+
+  if (searchOption === "genre") {
+    return ("%20genre:%22" + newKeyword + "%22");
+  } else if (searchOption === "artist") {
+    return ("%20artist:%22" + newKeyword + "%22");
+  } else if (searchOption === "album") {
+    return (newKeyword);
+  } else if (searchOption === "hipster") {
+    return ("%20tag:hipster%20%22" + newKeyword + "%22");
+  }
+}
+
 function discogsRequest(artist, album) {
   DiscogsService.getDiscogs(artist, album)
     .then(function(response) {
@@ -16,8 +42,10 @@ function discogsRequest(artist, album) {
     });
 }
 
-function spotifyPlayback(albumID) {
-  $("#widget").html(`<iframe src="https://open.spotify.com/embed/album/${albumID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
+function displayInfo(albumObj) {
+  $(".card").prepend(`<img class="card-img-top" src="${albumObj.cover}" alt="Cover Art for the Album ${albumObj.album}">`);
+  discogsRequest(albumObj.artist, albumObj.album);
+  $("#widget").html(`<iframe src="https://open.spotify.com/embed/album/${albumObj.ID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
 }
 
 // User Interface Logic //
@@ -43,28 +71,28 @@ $(document).ready(function() {
 
   $("#input").on("submit", function(e) {
     e.preventDefault();
-    let search = $("#searchTerm").val();
+    let search, searchOption;
+    search = $("#searchTerm").val();
+    searchOption = $("#searchOption").val();
 
-    Spotify.searchSpotify(search)
+    Spotify.searchSpotify(formatSearch(search, searchOption))
       .then(function(response) {
         if (response instanceof Error) {
           throw Error(`Spotify API error -- ${response.message}`);
         }
-        let artistInfo, albumInfo, albumLink, albumCover, spotifyData, albumID;
-        artistInfo = response.albums.items[0].artists[0].name;
-        albumInfo = response.albums.items[0].name;
-        albumLink = response.albums.items[0].external_urls.spotify;
-        albumCover = response.albums.items[0].images[0].url;
-        albumID = response.albums.items[0].id;
-        spotifyData = {artist: artistInfo, album: albumInfo, link: albumLink, cover: albumCover, ID: albumID};
-
-        // Make Discogs request with album retrieved from Spotify (callback) // 
-        discogsRequest(spotifyData.artist, spotifyData.album);
-        // Place Spotify widget into webpage with album retrieved from Spotify API (callback) //
-        spotifyPlayback(spotifyData.ID);
-
-        console.log(spotifyData);
-
+        if (searchOption != "genre") {
+          console.log(response);
+          let albumsObj = response.albums.items[0];
+          let album = buildAlbumObj(albumsObj);
+          console.log(album);
+          displayInfo(album);
+        } else {
+          console.log(response);
+          let tracksObj = response.tracks.items[0].album;
+          let album = buildAlbumObj(tracksObj);
+          console.log(album);
+          displayInfo(album);
+        }
       })
       .catch(function(err) {
         console.log(err);

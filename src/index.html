@@ -35,17 +35,23 @@
     <form id="input">
       <label for="searchTerm">What do you want to search?</label>
       <input id="searchTerm" type="text"> <br>
+      <label for="searchOption">What would you like to search by?</label>
+      <select id="searchOption">
+        <option value="genre">Genre</option>
+        <option value="album">Album name</option>
+        <option value="artist">Artist</option>
+        <option value="hipster">I'm Feeling Hipster...</option>
+      </select> <br>
       <button class="btn btn-outline-warning" id="searchSubmit">Search!</button>
     </form>
   </div>
   <div class="container" id="output">
     <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://goldbelly.imgix.net/uploads/product_image/image/46795/big-ass-jumbo-donut.58d7daaa6c5dcb0cb8142ab994f78210.jpg" alt="Cover Art for the Album [Album]">
       <ul class="list-group list-group-flush">
         <li class="list-group-item"> Artist: [Artist Name] </li>
         <li class="list-group-item"> Album: [Album Name]  </li>
         <li class="list-group-item"> Other: [Metadata]  </li>
-        <li class="list-group-item"> Vinyl: <a href="#" class="card-link">Available on Discogs</a>  </li>
+        <li class="list-group-item" id="vinylLink"></li>
       </ul>
     </div>
   </div>
