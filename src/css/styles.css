@@ -1,0 +1,35 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fbf6f1;
+  color: #000000;
+}
+
+#logoImage {
+  position: fixed;
+  top: 1%;
+  left: 1%;
+  width: 5%;
+}
+
+#intro {
+  text-align: center;
+  color: #000000;
+  background-color: #fbf6f1;
+  font-weight: 600;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+#body, #output, #navbar, #about{
+  display: none;
+}
+
+#navbar {
+  background-color: #fbf6f1;
+}
