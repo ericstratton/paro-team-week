@@ -14,13 +14,14 @@ function printCard(obj) {
 }
 
 function buildAlbumObj(obj) {
-  let artistInfo, albumInfo, albumLink, albumCover, albumID, spotifyData;
+  let artistInfo, albumInfo, albumLink, albumCover, albumID, spotifyData, albumDate;
   artistInfo = obj.artists[0].name;
   albumInfo = obj.name;
   albumLink = obj.external_urls.spotify;
   albumCover = obj.images[0].url;
   albumID = obj.id;
-  spotifyData = { artist: artistInfo, album: albumInfo, link: albumLink, cover: albumCover, ID: albumID};
+  albumDate = obj.release_date;
+  spotifyData = { artist: artistInfo, album: albumInfo, link: albumLink, cover: albumCover, ID: albumID, date: albumDate};
 
   return spotifyData;
 }
@@ -57,7 +58,7 @@ function displayInfo(albumObj) {
   $("#featWidget").html(`<iframe src="https://open.spotify.com/embed/album/${albumObj.ID}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`);
   $("#featArtist").html(`<h4>Artist Name:</h4> ${albumObj.artist}`);
   $("#featAlbum").html(`<h4>Album Name:</h4> ${albumObj.album}`);
-  $("#featYear").html(`<h4>Release Year:</h4> ${albumObj.album}`);
+  $("#featYear").html(`<h4>Release Date:</h4> ${albumObj.date}`);
   discogsRequest(albumObj.artist, albumObj.album, albumObj.ID);
 }
 
