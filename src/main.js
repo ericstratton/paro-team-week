@@ -67,6 +67,7 @@ function printNoResult() {
   $("#featWidget").html(" ");
   $("#featArtist").html(" ");
   $("#featAlbum").html(" ");
+  $("#featYear").html(" ");
 }
 
 // User Interface Logic //
