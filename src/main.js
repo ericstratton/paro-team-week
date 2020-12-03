@@ -69,6 +69,7 @@ function printNoResult() {
   $("#featAlbum").html(" ");
   $("#featYear").html(" ");
 }
+
 $('#readMore').click(function () {
   $('#intro').fadeOut();
   $('#output').fadeIn();
@@ -76,6 +77,7 @@ $('#readMore').click(function () {
   $('#navbar').fadeIn();
   $('#homeButton').css("color", "black");
 });
+
 $('#aboutButton').click(function () {
   $('#body').hide();
   $('#output').hide();
@@ -85,6 +87,7 @@ $('#aboutButton').click(function () {
   $('#homeButton').css("color", "gray");
   $('#historyButton').css("color", "gray");
 });
+
 $('#homeButton').click(function () {
   $('#output').show();
   $('#body').show();
@@ -104,8 +107,6 @@ $('#historyButton').click(function () {
   $('#aboutButton').css("color", "gray"); 
   $('#homeButton').css("color", "gray");
 });
-
-
 
 
 $(document).ready(function () {

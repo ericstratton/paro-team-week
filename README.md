@@ -34,6 +34,8 @@ Paro was built collaboratively by Ben, Zahnen, Eric, Riley, Shannon, and Cory as
 
 In Paro's current iteration, an OAuth 2.0 access token is required to be hardcoded into the program in an environmental variable. In future iterations, Paro will use a Spotify-based user login to provide access tokens for use on the webpage.
 
+Media queries need refining as some elements stack incorrectly on smaller devices.
+
 
 
 ---  

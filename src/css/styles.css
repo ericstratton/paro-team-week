@@ -78,3 +78,17 @@ form {
   font-family: 'Corben', Georgia, Times, serif;
   font-weight: bold;
 }
+
+#about a {
+  text-decoration: underline dashed;
+  font-family: 'Corben', Georgia, Times, serif;
+  font-weight: bold;
+  color: black;
+}
+
+#githubLink a {
+  text-decoration: underline dashed;
+  font-family: 'Corben', Georgia, Times, serif;
+  font-weight: bold;
+  color: red;
+}
