@@ -1,47 +1,43 @@
-# Vinyl Suggester
+# **Paro**
+### A tool to discover music digitally to connect with physically, November 30, 2020
 
-## Get a suggested album with the price of a physical vinyl copy! 
+### Ben McFarland, Zahnen Garner, Shannon Grantski, Eric Stratton, Riley McAdoo, and Cory Nordenbrock
 
-## 11 / 30 / 2020
+---  
 
-### Ben McFarland, Zahnen Garner, Shannon Grantski, Eric Stratton, Riley McAdoo, Cory Nordenbrock
+Paro exists to bridge the preferential rift between analog and digital listening. Paro allows users to discover new music digitally to connect with physically.
 
-Website to search Spotify of albums and return the Discogs vinyl price of your searched albums.
+Paro takes user-input keywords to search through Spotify's library and return a playable album + album details. Paro checks to see if the album is available for purchase on Discogs' vinyl marketplace and will provide a link for purchase if so. Paro was built using APIs kindly provided by Spotify and Discogs
 
-## Setup/Installation Requirements
+Paro was built collaboratively by Ben, Zahnen, Eric, Riley, Shannon, and Cory as a team-based project while studying at Epicodus. The project makes use of concepts recently learned which include object notation, making API calls, writing functions, Node.js.  
 
-#### Using Terminal/Command Line:
-* Open your machine's Terminal or Command line
-* Using the Terminal/Command line, navigate to the location you would like this project
-* Enter the command: `git clone hhttps://github.com/harzulu/vinyl-suggester`
+---  
 
-#### Downloading from GitHub:
-* Click the green "code" button to the top right
-* Click "Download ZIP"
-* Open the zip file in your downloads folder
-* Move the folder "vinyl-suggester" to your desired location
+## Setup/Installation Instructions
 
-#### Getting an API Key:
-* You will need an API key from Spotify and Discogs: Visit https://developer.spotify.com/documentation/web-api/, and https://www.discogs.com/developers/# to sign-up and obtain your API keys.
-* Once you have your API keys, create a file in the main project folder called ".env".
-* In the ".env" file enter in: "`SPOTIFY_API_KEY = [API key from https://developer.spotify.com/documentation/web-api/]`".
-* And enter in: "`DISCOGS_API_KEY = [API key from https://www.discogs.com/developers/#]`".
+### To run Paro locally:
 
-#### Opening the Project:
-**This project uses Node. Make sure your machine has Node installed. Follow the instructions here: `https://nodejs.org/en/` to install Node.**
-* Once you have Node installed, navigate to the folder of this project ("vinyl-suggester") through your terminal or command line.
-* Run the command `npm install` to install all the required dependancies and libraries.
-* **To open the project in your default browser:** 
-* Run the command `npm run build`, then navigate to the "dist" folder. 
-* Enter the command: `open index.html`
+* _Open your git-capable command line program (we recommend Terminal on Mac or Git Bash on PC)_
+* _Ensure you are within the directory you'd like the file to be created in._
+* _Enter the command "$ git clone https://github.com/harzulu/vinyl-suggester" in your command line_
+* _Once cloned, use the "$ cd " command to navigate to the directory created in the previous step._
+* _You must have node.js installed in order to run the webpage successfully. If you do not have node.js installed, find more information and download it [here](https://nodejs.org/en/download/)_
+* _Once in the newly cloned directory, run "$ npm install" in your command line to install the necessary packages and dependencies._
+* _This program uses APIs provided by Spotify and Discogs and has been tested using a hidden access token from spotify. In order to test on your local device, you'll need to generate your own access token by following instructions [here](https://developer.spotify.com/documentation/web-api/)_
+* _Once you have your access token, replace the "${process.env.ACCESS_TOKEN}" within the url on Line 4 of spotify.service.js with your new key._
+* _Alternatively, if you'd like to keep your key encrypted for publishing, skip the previous step and instead create a file called ".env" at the root level of your project directory. Input the code "ACCESS_TOKEN=" (minus the quotation marks) into this file and follow that line with your unique access token. As this project supports environmental variables, your API key will now be held in the "${process.env.ACCESS_TOKEN}" variable_
+* _To open the webpage in your default browser, run "$ npm start"._
 
-#### To View Live Project Online:
-The live version is at this link:
-[gh-pages_link]
+---  
 
 ## Known Bugs/Issues
 
-There are no known bugs or issues.
+In Paro's current iteration, an OAuth 2.0 access token is required to be hardcoded into the program in an environmental variable. In future iterations, Paro will use a Spotify-based user login to provide access tokens for use on the webpage.
+
+
+
+---  
+
 
 ## Support and Contact Details
 
@@ -52,24 +48,34 @@ There are no known bugs or issues.
 * cordenbrock@gmail.com
 * riley.mcadoo@gmail.com
 
-## Specs
+---  
 
-| *Test* | *Input* | *Output* |
+## Technologies Used
 
-## Technology Used
+_This webpage required use of the following programs/languages/libraries to create:_
+* _GitBash_
+* _Visual Studio Code_
+* _GitHub_
+* _GitHub Pages_
+* _HTML_
+* _CSS_
+* _Bootstrap_
+* _JavaScript_
+* _JQuery_
+* _Node.js_
+* _npm_
+* _[Spotify API](https://developer.spotify.com/documentation/web-api/)_
+* _[Discogs API](https://www.discogs.com/developers/)_
+* _Jest_
+* _For a full list of packages/dependencies, feel free to have a look in the file titled package.json_
 
-* Microsoft Visual Studio Code
-* HTML
-* CSS
-* JavaScript
-* jQuery
-* Bootstrap
-* Node.js
-* Spotify API
-* Discogs API
+---  
 
-## Licenseing and Copyright
+## License
 
-This project is licensed under the GPL license.
+*Licensed under MIT*
+
+*Spotify library and playback APIs kindly provided by [Spotify](https://developer.spotify.com/documentation/web-api/)*  
+*Discogs marketplace API kindly provided by [Discogs](https://www.discogs.com/developers/)*  
 
 Copyright (c) 2020 Ben McFarland, Zahnen Garner, Shannon Grantski, Eric Stratton, Riley McAdoo, Cory Nordenbrock

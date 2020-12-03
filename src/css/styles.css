@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, .btn, .navbar-nav, .list-group-item {
 
 #navbar {
   background-color: #fbf6f1;
+  margin-bottom: 2%;
 }
 
 .album-data {
@@ -54,4 +55,26 @@ iframe {
 
 #heroImage {
   border-radius: 50%;
+}
+
+.row {
+  margin-top: 1%;
+}
+
+form {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+#about p {
+  margin-left: 1em;
+}
+
+.team {
+  padding-left: 5em;
+}
+
+.team b {
+  font-family: 'Corben', Georgia, Times, serif;
+  font-weight: bold;
 }

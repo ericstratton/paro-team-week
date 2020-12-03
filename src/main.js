@@ -5,13 +5,7 @@ import './css/styles.css';
 import Spotify from './../src/js/spotify.service.js';
 import DiscogsService from './../src/js/discogs-services.js';
 
-
 // Business Logic //
-
-
-function printCard(obj) {
-  $("#cardMenu").prepend(`<div class="album-data card col-4"><img class="card-img-top" src="${obj.cover}" alt="Cover Art for the Album ${obj.album}"><ul class="list-group list-group-flush"><li class="list-group-item">${obj.artist}</li><li class="list-group-item">${obj.album}</li><li class="list-group-item" id="${obj.ID}"></li></ul></div>`);
-}
 
 function buildAlbumObj(obj) {
   let artistInfo, albumInfo, albumLink, albumCover, albumID, spotifyData, albumDate;
@@ -21,7 +15,7 @@ function buildAlbumObj(obj) {
   albumCover = obj.images[0].url;
   albumID = obj.id;
   albumDate = obj.release_date;
-  spotifyData = { artist: artistInfo, album: albumInfo, link: albumLink, cover: albumCover, ID: albumID, date: albumDate};
+  spotifyData = { artist: artistInfo, album: albumInfo, link: albumLink, cover: albumCover, ID: albumID, date: albumDate };
 
   return spotifyData;
 }
@@ -42,15 +36,21 @@ function formatSearch(keyword, searchOption) {
 
 function discogsRequest(artist, album, id) {
   DiscogsService.getDiscogs(artist, album)
-    .then(function(response) {
+    .then(function (response) {
       if (response.results.length > 0) {
-        $("#vinylLink").html(`<h4>Purchase Album:</h4> <a href="https://www.discogs.com/master/${response.results[1].master_id}">Available on Discogs</a>`);
+        $("#vinylLink").html(`</br><a href="https://www.discogs.com/master/${response.results[1].master_id}" target="_blank"><img src="https://i.imgur.com/J0plMpi.png"></a>`);
         $("#" + id).html(`<a href="https://www.discogs.com/master/${response.results[1].master_id}">Available on Discogs</a>`);
       } else {
-        $("#vinylLink").html("<h5>Album not on Discogs</h5>");
+        $("#vinylLink").html(`</br><img src="https://i.imgur.com/vqDBBK2.png">`);
         $("#" + id).html("Album not on Discogs");
       }
     });
+}
+
+// User Interface Logic //
+
+function printCard(obj) {
+  $("#cardMenu").prepend(`<div class="album-data card col-4"><img class="card-img-top" src="${obj.cover}" alt="Cover Art for the Album ${obj.album}"><ul class="list-group list-group-flush"><li class="list-group-item">${obj.artist}</li><li class="list-group-item">${obj.album}</li><li class="list-group-item"><a href="https://open.spotify.com/album/${obj.ID}" target="_blank">Stream Album on Spotify</a></li><li class="list-group-item" id="${obj.ID}"></li></ul></div>`);
 }
 
 function displayInfo(albumObj) {
@@ -69,46 +69,55 @@ function printNoResult() {
   $("#featAlbum").html(" ");
   $("#featYear").html(" ");
 }
-
-// User Interface Logic //
-
-$('#readMore').click (function() {
+$('#readMore').click(function () {
   $('#intro').fadeOut();
   $('#output').fadeIn();
   $('#body').fadeIn();
   $('#navbar').fadeIn();
+  $('#homeButton').css("color", "black");
 });
-$('#aboutButton').click (function() {
+$('#aboutButton').click(function () {
   $('#body').hide();
   $('#output').hide();
   $('#about').show();
   $('#history').hide();
-
+  $('#aboutButton').css("color", "black");
+  $('#homeButton').css("color", "gray");
+  $('#historyButton').css("color", "gray");
 });
-$('#homeButton').click (function() {
+$('#homeButton').click(function () {
   $('#output').show();
   $('#body').show();
   $('#about').hide();
   $('#history').hide();
-
+  $('#homeButton').css("color", "black");
+  $('#aboutButton').css("color", "gray");
+  $('#historyButton').css("color", "gray");
 });
-$('#historyButton').click (function() {
+
+$('#historyButton').click(function () {
   $('#history').show();
   $('#body').hide();
   $('#output').hide();
   $('#about').hide();
+  $('#historyButton').css("color", "black");
+  $('#aboutButton').css("color", "gray"); 
+  $('#homeButton').css("color", "gray");
 });
 
-$(document).ready(function() {
 
-  $("#input").on("submit", function(e) {
+
+
+$(document).ready(function () {
+
+  $("#input").on("submit", function (e) {
     e.preventDefault();
     let search, searchOption;
     search = $("#searchTerm").val();
     searchOption = $("#searchOption").val();
 
     Spotify.searchSpotify(formatSearch(search, searchOption))
-      .then(function(response) {
+      .then(function (response) {
         if (response instanceof Error) {
           throw Error(`Spotify API error -- ${response.message}`);
         }
@@ -130,11 +139,8 @@ $(document).ready(function() {
           }
         }
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err);
       });
   });
 });
-
-
-
