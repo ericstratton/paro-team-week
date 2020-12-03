@@ -11,7 +11,7 @@ body {
   font-weight: normal;
 }
 
-h1, h2, h3, h4, .btn, .navbar-nav, .list-group-item {
+h1, h2, h3, h4, h5, .btn, .navbar-nav, .list-group-item {
   font-family: 'Corben', Georgia, Times, serif;
   font-weight: bold;
 }

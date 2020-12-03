@@ -57,80 +57,22 @@
   </div>
   <div class="container" id="output">
     <div class="row justify-content-around">
-      <div class="album-data col-4">
-        <iframe src="https://open.spotify.com/embed/playlist/6xNf5xfc0U9rNIJY2ssbu6" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-        </div>
-      <div class="album-data col-4">
-        <img id="heroImage" width="200px" src="https://goldbelly.imgix.net/uploads/product_image/image/46795/big-ass-jumbo-donut.58d7daaa6c5dcb0cb8142ab994f78210.jpg">
+      <div id="featWidget" class="album-data col-4">
       </div>
       <div class="album-data col-4">
-        <h4>Artist Name:</h4>
-        <h4>Album Name:</h4>
-        <h4>Release Year:</h4>
-        <h4>Link to buy:</h4>
+        <span id="featImage"></span>
+      </div>
+      <div class="album-data col-4">
+        <span id="featArtist"></span>
+        <span id="featAlbum"></span>
+        <span id="featYear"></span>
+        <span id="vinylLink"></span>
       </div>
     </div>
   </div>
-
-  <!-- BELOW THIS ARE THE SMALL CARDS -->
   <div class="container" id="history">
-    <div class="row justify-content-around">
-      <div class="album-data card col-4">
-        <!-- <img class="card-img-top" src="https://goldbelly.imgix.net/uploads/product_image/image/46795/big-ass-jumbo-donut.58d7daaa6c5dcb0cb8142ab994f78210.jpg" alt="Cover Art for the Album [Album]"> -->
-        <span id="demo-card"></span>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"> Artist: [Artist Name] #1 </li>
-          <li class="list-group-item"> Album: [Album Name]  </li>
-          <li class="list-group-item"> Other: [Metadata]  </li>
-          <li class="list-group-item" id="vinylLink"></li>
-        </ul>
-      </div>
-      <div class="album-data card col-4">
-        <img class="card-img-top" src="https://goldbelly.imgix.net/uploads/product_image/image/46795/big-ass-jumbo-donut.58d7daaa6c5dcb0cb8142ab994f78210.jpg" alt="Cover Art for the Album [Album]">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"> Artist: [Artist Name] #2</li>
-          <li class="list-group-item"> Album: [Album Name]  </li>
-          <li class="list-group-item"> Other: [Metadata]  </li>
-          <li class="list-group-item"> Vinyl: <a href="#" class="card-link">Available on Discogs</a>  </li>
-        </ul>
-      </div>
-      <div class="album-data card col-4">
-        <img class="card-img-top" src="https://goldbelly.imgix.net/uploads/product_image/image/46795/big-ass-jumbo-donut.58d7daaa6c5dcb0cb8142ab994f78210.jpg" alt="Cover Art for the Album [Album]">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"> Artist: [Artist Name] #3</li>
-          <li class="list-group-item"> Album: [Album Name]  </li>
-          <li class="list-group-item"> Other: [Metadata]  </li>
-          <li class="list-group-item"> Vinyl: <a href="#" class="card-link">Available on Discogs</a>  </li>
-        </ul>
-      </div>
-      <div class="album-data card col-4">
-        <img class="card-img-top" src="https://goldbelly.imgix.net/uploads/product_image/image/46795/big-ass-jumbo-donut.58d7daaa6c5dcb0cb8142ab994f78210.jpg" alt="Cover Art for the Album [Album]">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"> Artist: [Artist Name] #3</li>
-          <li class="list-group-item"> Album: [Album Name]  </li>
-          <li class="list-group-item"> Other: [Metadata]  </li>
-          <li class="list-group-item"> Vinyl: <a href="#" class="card-link">Available on Discogs</a>  </li>
-        </ul>
-      </div>
-      <div class="album-data card col-4">
-        <img class="card-img-top" src="https://goldbelly.imgix.net/uploads/product_image/image/46795/big-ass-jumbo-donut.58d7daaa6c5dcb0cb8142ab994f78210.jpg" alt="Cover Art for the Album [Album]">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"> Artist: [Artist Name] #3</li>
-          <li class="list-group-item"> Album: [Album Name]  </li>
-          <li class="list-group-item"> Other: [Metadata]  </li>
-          <li class="list-group-item"> Vinyl: <a href="#" class="card-link">Available on Discogs</a>  </li>
-        </ul>
-      </div>
+    <div class="row justify-content-around" id="cardMenu">
     </div>
-  </div>
-  <div id="widget">
   </div>
 </body>
 </html>
-
-<!-- <img id="logoImage" src="https://i.imgur.com/9R2c37N.jpg" alt="paro logo"> -->
-    <!--   
-      <form id="spotifyLogin">
-        <button class="btn btn-outline-success" id="logIn">Log In to Spotify Here:</button>
-      </form>
-    /-->
