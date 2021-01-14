@@ -15,6 +15,12 @@ Paro was built collaboratively by Ben, Zahnen, Eric, Riley, Shannon, and Cory as
 
 ## Setup/Installation Instructions
 
+### To visit Paro online:
+
+*_You will need a Spotify account to autheticate the Spotify API_*
+
+*_https://paro-for-president.herokuapp.com/_*
+
 ### To run Paro locally:
 
 * _Open your git-capable command line program (we recommend Terminal on Mac or Git Bash on PC)_
