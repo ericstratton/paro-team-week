@@ -25,7 +25,7 @@ Paro was built collaboratively by Ben, Zahnen, Eric, Riley, Shannon, and Cory as
 
 * _Open your git-capable command line program (we recommend Terminal on Mac or Git Bash on PC)_
 * _Ensure you are within the directory you'd like the file to be created in._
-* _Enter the command "$ git clone https://github.com/harzulu/vinyl-suggester" in your command line_
+* _Enter the command "$ git clone https://github.com/EricStratton/paro-team-week" in your command line_
 * _Once cloned, use the "$ cd " command to navigate to the directory created in the previous step._
 * _You must have node.js installed in order to run the webpage successfully. If you do not have node.js installed, find more information and download it [here](https://nodejs.org/en/download/)_
 * _Once in the newly cloned directory, run "$ npm install" in your command line to install the necessary packages and dependencies._
